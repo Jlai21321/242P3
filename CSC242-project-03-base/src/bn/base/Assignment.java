@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
+import bn.core.Domain;
+import bn.core.RandomVariable;
+import bn.core.Value;
 import bn.util.ArrayMap;
 
 /**
@@ -21,12 +23,12 @@ import bn.util.ArrayMap;
  * @see bn.core.Assignment
  * @see bn.util.ArrayMap
  */
-public class Assignment extends ArrayMap<RandomVariable,Value>{
+public class Assignment extends ArrayMap<RandomVariable,Value> implements bn.core.Assignment {
 
 	public Assignment() {
 		super();
 	}
-	
+
 	public Assignment(RandomVariable X1, Value x1) {
 		this();
 		this.put(X1, x1);
@@ -38,7 +40,7 @@ public class Assignment extends ArrayMap<RandomVariable,Value>{
 	}
 
 	public Assignment(RandomVariable X1, Value x1, RandomVariable X2, Value x2,
-						RandomVariable X3, Value x3) {
+					  RandomVariable X3, Value x3) {
 		this(X1, x1, X2, x2);
 		this.put(X3, x3);
 	}
@@ -64,12 +66,13 @@ public class Assignment extends ArrayMap<RandomVariable,Value>{
 	 * @see ArraySet.iterator
 	 * @see ArrayList.iterator
 	 */
-	public boolean containsAll(Assignment other) {
+	@Override
+	public boolean containsAll(bn.core.Assignment other) {
 		Set<Map.Entry<RandomVariable,Value>> ourEntries = this.entrySet();
 		Set<Map.Entry<RandomVariable,Value>> theirEntries = other.entrySet();
 		return ourEntries.containsAll(theirEntries);
 	}
-	
+
 	/**
 	 * Return a shallow copy of this Assignment (that is, an Assignment that
 	 * contains the same assignments without copying the RandomVariables or
@@ -93,7 +96,7 @@ public class Assignment extends ArrayMap<RandomVariable,Value>{
 		List<RandomVariable> varlist = new ArrayList<RandomVariable>(variables);
 		return allPossibleAssignments(varlist);
 	}
-	
+
 	/**
 	 * Return a List of Assignments, one for each possible combination of the
 	 * given List of Variables.
@@ -128,13 +131,13 @@ public class Assignment extends ArrayMap<RandomVariable,Value>{
 		adomain.add(a1);
 		adomain.add(a2);
 		adomain.add(a3);
-		RandomVariable A = new NamedVariable("A", adomain); 
+		RandomVariable A = new NamedVariable("A", adomain);
 		Value b1 = new StringValue("b1");
 		Value b2 = new StringValue("b2");
 		Domain bdomain = new bn.base.Domain();
 		bdomain.add(b1);
 		bdomain.add(b2);
-		RandomVariable B = new NamedVariable("B", bdomain); 
+		RandomVariable B = new NamedVariable("B", bdomain);
 		Assignment assignment = new Assignment();
 		assignment.put(A, a1);
 		assignment.put(B, b1);

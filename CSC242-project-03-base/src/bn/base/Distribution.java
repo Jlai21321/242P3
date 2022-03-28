@@ -52,8 +52,11 @@ public class Distribution extends ArrayMap<Value,Double> implements bn.core.Dist
 	 */
 	@Override
 	public double get(Value value) {
+	//	System.out.println("hello");
 		Double p = super.get(value);
+		//System.out.println(p);
 		if (p == null) {
+			System.out.println("this is why we break");
 			throw new IllegalArgumentException(value.toString());
 		} else {
 			return p.doubleValue();

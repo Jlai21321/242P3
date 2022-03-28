@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CSC242-project-03-base/CSC242-project-03-base.iml" filepath="$PROJECT_DIR$/CSC242-project-03-base/CSC242-project-03-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSC242-project-03-core/CSC242-project-03-core.iml" filepath="$PROJECT_DIR$/CSC242-project-03-core/CSC242-project-03-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSC242-project-03-parser/CSC242-project-03-parser.iml" filepath="$PROJECT_DIR$/CSC242-project-03-parser/CSC242-project-03-parser.iml" />
+    </modules>
+  </component>
+</project>

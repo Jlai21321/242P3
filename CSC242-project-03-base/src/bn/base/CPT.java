@@ -100,6 +100,7 @@ public class CPT implements bn.core.CPT {
 	public double get(Value value, Assignment assignment) throws IllegalArgumentException {
 		Distribution row = getRowForAssignment(assignment);
 		if (row == null) {
+			System.out.println("Nani");
 			throw new IllegalArgumentException(assignment.toString());
 		} else {
 			return row.get(value);
